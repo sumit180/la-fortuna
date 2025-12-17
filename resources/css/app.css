@@ -1,11 +1,11 @@
 /* Color Variables */
 :root {
-    --gold: #D4AF37;
+    --gold: #c18224;
     --gold-light: #F4E4B8;
     --gold-dark: #B8941E;
     --red: #C41E3A;
     --red-light: #DC143C;
-    --red-dark: #8B0000;
+    --red-dark: #de020e;
     --white: #FFFFFF;
     --off-white: #F8F8F8;
     --light-gray: #F5F5F5;
@@ -84,6 +84,32 @@ a {
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-img {
+    height: 72px !important;
+    max-height: 72px;
+    width: auto !important;
+}
+
+/* Shrink logo a bit when navbar is scrolled */
+.navbar.scrolled .logo-img {
+    height: 56px !important;
+    max-height: 56px;
+}
+
+/* Mobile: keep header compact */
+@media (max-width: 768px) {
+    .logo-img {
+        height: 48px !important;
+        max-height: 48px;
+    }
+}
+
+.logo-text-wrapper {
     display: flex;
     flex-direction: column;
 }
@@ -608,8 +634,8 @@ textarea.form-control {
 
 /* Footer */
 .footer {
-    background: var(--dark);
-    color: var(--white);
+    background: #f0f0f0;
+    color: var(--dark);
     padding: 60px 0 20px;
 }
 
@@ -626,9 +652,15 @@ textarea.form-control {
 }
 
 .footer-col p {
-    color: #aaa;
+    color: var(--dark);
     line-height: 1.8;
     margin-bottom: 20px;
+}
+
+.footer-logo {
+    height: 64px;
+    width: auto;
+    margin-bottom: 15px;
 }
 
 .footer-col ul {
@@ -640,7 +672,7 @@ textarea.form-control {
 }
 
 .footer-col ul li a {
-    color: #aaa;
+    color: var(--dark);
 }
 
 .footer-col ul li a:hover {
@@ -651,6 +683,7 @@ textarea.form-control {
     display: flex;
     align-items: start;
     gap: 10px;
+    color: var(--dark);
 }
 
 .contact-info i {
@@ -683,8 +716,8 @@ textarea.form-control {
 .footer-bottom {
     text-align: center;
     padding-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: #aaa;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--dark);
 }
 
 /* Scroll to Top */

@@ -142,12 +142,5 @@ if (reviewForm) {
     handleFormSubmit(reviewForm, 'Thank you for your review!');
 }
 
-// Gallery Lightbox Effect (Simple implementation)
-const galleryItems = document.querySelectorAll('.gallery-item');
-galleryItems.forEach(item => {
-    item.addEventListener('click', function() {
-        const imgSrc = this.querySelector('img').src;
-        // Simple alert - you can integrate a proper lightbox library
-        window.open(imgSrc, '_blank');
-    });
-});
+// Gallery Lightbox: handled by PhotoSwipe in gallery.blade.php
+// Intentionally no default click handler here to avoid opening new tabs.

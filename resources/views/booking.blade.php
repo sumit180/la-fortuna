@@ -124,10 +124,10 @@
                         <label for="budget">Estimated Budget</label>
                         <select id="budget" name="budget" class="form-control">
                             <option value="">Select Budget Range</option>
-                            <option value="budget1">$5,000 - $10,000</option>
-                            <option value="budget2">$10,000 - $20,000</option>
-                            <option value="budget3">$20,000 - $30,000</option>
-                            <option value="budget4">$30,000+</option>
+                            <option value="budget1">₹5,000 - ₹10,000</option>
+                            <option value="budget2">₹10,000 - ₹20,000</option>
+                            <option value="budget3">₹20,000 - ₹30,000</option>
+                            <option value="budget4">₹30,000+</option>
                         </select>
                     </div>
                     

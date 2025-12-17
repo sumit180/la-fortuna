@@ -23,9 +23,8 @@
     <nav class="navbar" id="navbar">
         <div class="container">
             <div class="nav-wrapper">
-                <a href="{{ route('home') }}" class="logo">
-                    <span class="logo-text">La Fortuna</span>
-                    <span class="logo-subtitle">Banquet Hall</span>
+                <a href="{{ route('home') }}" class="logo" aria-label="La Fortuna Banquet Hall">
+                    <img src="{{ asset('la-fortuna-logo1.png') }}" alt="La Fortuna Banquet Hall" class="logo-img">
                 </a>
                 
                 <button class="mobile-toggle" id="mobileToggle">
@@ -55,6 +54,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-col">
+                    <img src="{{ asset('la-fortuna-logo1.png') }}" alt="La Fortuna Banquet Hall Logo" class="footer-logo">
                     <h3>La Fortuna</h3>
                     <p>Creating unforgettable moments for your special celebrations. Experience elegance and sophistication at its finest.</p>
                     <div class="social-links">
