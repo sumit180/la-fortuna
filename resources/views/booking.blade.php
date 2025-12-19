@@ -5,6 +5,11 @@
 
 @section('content')
 <!-- Page Header -->
+@if(session('status'))
+    <div class="container" style="margin-top: 16px;">
+        <div class="alert alert-success">{{ session('status') }}</div>
+    </div>
+@endif
 <section class="hero" style="height: 60vh; min-height: 400px;">
     <div class="hero-slider">
         <div class="hero-slide active">
@@ -82,62 +87,7 @@
             <!-- Form Column -->
             <div class="form-card">
                 <h2 style="margin-bottom: 30px;">Event Booking Form</h2>
-                <form id="bookingForm">
-                    <div class="form-group">
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" name="name" class="form-control" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" class="form-control" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" class="form-control" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="event_type">Event Type *</label>
-                        <select id="event_type" name="event_type" class="form-control" required>
-                            <option value="">Select Event Type</option>
-                            <option value="wedding">Wedding</option>
-                            <option value="birthday">Birthday Party</option>
-                            <option value="anniversary">Anniversary</option>
-                            <option value="corporate">Corporate Event</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="event_date">Preferred Event Date *</label>
-                        <input type="date" id="event_date" name="event_date" class="form-control" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="guests">Expected Number of Guests *</label>
-                        <input type="number" id="guests" name="guests" class="form-control" min="1" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="budget">Estimated Budget</label>
-                        <select id="budget" name="budget" class="form-control">
-                            <option value="">Select Budget Range</option>
-                            <option value="budget1">₹5,000 - ₹10,000</option>
-                            <option value="budget2">₹10,000 - ₹20,000</option>
-                            <option value="budget3">₹20,000 - ₹30,000</option>
-                            <option value="budget4">₹30,000+</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Additional Details</label>
-                        <textarea id="message" name="message" class="form-control" rows="5" placeholder="Tell us more about your event..."></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Booking Request</button>
-                </form>
+                <livewire:booking.form />
             </div>
         </div>
     </div>

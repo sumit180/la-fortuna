@@ -22,6 +22,11 @@ Route::get('/booking', function () {
     return view('booking');
 })->name('booking');
 
+// Booking Form Submission
+use App\Http\Controllers\BookingController;
+
+Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+
 // Reviews (not in navigation)
 Route::get('/reviews', function () {
     return view('reviews');
