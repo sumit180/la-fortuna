@@ -18,6 +18,28 @@
     </div>
 </section>
 
+<!-- Dynamic Gallery Section -->
+@if(isset($galleries) && $galleries->count())
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Our Gallery</h2>
+            <p class="section-subtitle">Recent images from our events</p>
+        </div>
+        <div class="gallery-grid pswp-gallery" data-gallery="dynamic">
+            @foreach($galleries as $item)
+                <div class="gallery-item">
+                    <a class="gallery-link" href="{{ asset('storage/' . $item->image) }}" data-pswp-width="1600" data-pswp-height="1067">
+                        <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}">
+                        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                    </a>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+@endif
+
 <!-- Gallery Section -->
 <section class="section">
     <div class="container">

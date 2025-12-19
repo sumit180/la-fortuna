@@ -42,6 +42,10 @@
                 <span>Leads</span>
                 <span class="badge" style="margin-left:auto;">New</span>
             </a>
+            <a href="{{ route('admin.galleries.index') }}" class="{{ request()->routeIs('admin.galleries.*') ? 'active' : '' }}">
+                <i class="fa-regular fa-image"></i>
+                <span>Galleries</span>
+            </a>
         </nav>
     </aside>
     <section>

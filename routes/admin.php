@@ -17,6 +17,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         Route::get('/leads', [AdminLeadController::class, 'index'])->name('leads.index');
 
+        // Galleries
+        Route::get('/galleries', function () {
+            return view('admin.galleries.index');
+        })->name('galleries.index');
+
         // Password change
         Route::get('/password', [AdminProfileController::class, 'edit'])->name('password.edit');
         Route::post('/password', [AdminProfileController::class, 'update'])->name('password.update');
