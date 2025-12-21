@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookingController;
 use App\Models\Banner;
 use App\Models\Gallery;
 use App\Models\GalleryCategory;
@@ -20,7 +21,12 @@ Route::get('/', function () {
         ->limit(10)
         ->get();
 
-    return view('home', compact('banners', 'reviews'));
+    $galleryPreviews = Gallery::query()
+        ->latest()
+        ->limit(6)
+        ->get();
+
+    return view('home', compact('banners', 'reviews', 'galleryPreviews'));
 })->name('home');
 
 // About Us
@@ -45,8 +51,6 @@ Route::get('/booking', function () {
 })->name('booking');
 
 // Booking Form Submission
-use App\Http\Controllers\BookingController;
-
 Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 
 // Add Review

@@ -134,42 +134,53 @@
             <p class="section-subtitle">Take a glimpse at our beautiful venue and past celebrations</p>
         </div>
         <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=800&q=80" alt="Wedding decoration">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
+            @if(isset($galleryPreviews) && $galleryPreviews->count())
+                @foreach($galleryPreviews as $item)
+                    <div class="gallery-item">
+                        <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title ?? ($item->category->name ?? 'Gallery Image') }}">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                @endforeach
+            @else
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=800&q=80" alt="Wedding decoration">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
                 </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1519167758481-83f29da8ee08?w=800&q=80" alt="Banquet setup">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1519167758481-83f29da8ee08?w=800&q=80" alt="Banquet setup">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
                 </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&q=80" alt="Reception hall">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&q=80" alt="Reception hall">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
                 </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80" alt="Celebration">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80" alt="Celebration">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
                 </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80" alt="Event venue">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80" alt="Event venue">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
                 </div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80" alt="Party setup">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80" alt="Party setup">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
                 </div>
-            </div>
+            @endif
         </div>
         <div style="text-align: center; margin-top: 40px;">
             <a href="{{ route('gallery') }}" class="btn btn-primary">View Full Gallery</a>
