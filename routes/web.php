@@ -3,6 +3,7 @@
 use App\Models\Banner;
 use App\Models\Gallery;
 use App\Models\GalleryCategory;
+use App\Models\Review;
 use Illuminate\Support\Facades\Route;
 
 // Homepage
@@ -13,7 +14,13 @@ Route::get('/', function () {
         ->latest()
         ->get();
 
-    return view('home', compact('banners'));
+    $reviews = Review::query()
+        ->where('is_approved', true)
+        ->latest()
+        ->limit(10)
+        ->get();
+
+    return view('home', compact('banners', 'reviews'));
 })->name('home');
 
 // About Us
