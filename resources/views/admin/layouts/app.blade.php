@@ -46,6 +46,18 @@
                 <i class="fa-regular fa-image"></i>
                 <span>Galleries</span>
             </a>
+            <a href="{{ route('admin.banners.index') }}" class="{{ request()->routeIs('admin.banners.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-images"></i>
+                <span>Home Banners</span>
+            </a>
+            <a href="{{ route('admin.gallery-categories.index') }}" class="{{ request()->routeIs('admin.gallery-categories.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-tags"></i>
+                <span>Gallery Categories</span>
+            </a>
+            <a href="{{ route('admin.reviews.index') }}" class="{{ request()->routeIs('admin.reviews.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-star"></i>
+                <span>Reviews</span>
+            </a>
         </nav>
     </aside>
     <section>

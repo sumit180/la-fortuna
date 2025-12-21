@@ -22,6 +22,21 @@ Route::prefix('admin')->name('admin.')->group(function () {
             return view('admin.galleries.index');
         })->name('galleries.index');
 
+        // Home Banners
+        Route::get('/banners', function () {
+            return view('admin.banners.index');
+        })->name('banners.index');
+
+        // Gallery Categories
+        Route::get('/gallery-categories', function () {
+            return view('admin.categories.index');
+        })->name('gallery-categories.index');
+
+        // Reviews
+        Route::get('/reviews', function () {
+            return view('admin.reviews.index');
+        })->name('reviews.index');
+
         // Password change
         Route::get('/password', [AdminProfileController::class, 'edit'])->name('password.edit');
         Route::post('/password', [AdminProfileController::class, 'update'])->name('password.update');

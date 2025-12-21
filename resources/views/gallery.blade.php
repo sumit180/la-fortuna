@@ -18,169 +18,33 @@
     </div>
 </section>
 
-<!-- Dynamic Gallery Section -->
-@if(isset($galleries) && $galleries->count())
-<section class="section">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">Our Gallery</h2>
-            <p class="section-subtitle">Recent images from our events</p>
-        </div>
-        <div class="gallery-grid pswp-gallery" data-gallery="dynamic">
-            @foreach($galleries as $item)
-                <div class="gallery-item">
-                    <a class="gallery-link" href="{{ asset('storage/' . $item->image) }}" data-pswp-width="1600" data-pswp-height="1067">
-                        <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}">
-                        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-                    </a>
+@if(isset($categories) && $categories->count())
+    @foreach($categories as $index => $category)
+        @php
+            $useAltBackground = $index % 2 === 0;
+        @endphp
+        <section class="section" style="background: {{ $useAltBackground ? 'var(--light-gray)' : 'var(--white)' }};">
+            <div class="container">
+                <div class="section-header" style="text-align:center; margin-bottom:24px;">
+                    <h2 class="section-title" style="font-size:32px;">{{ $category->name }}</h2>
+                    @if($category->short_description)
+                        <p class="section-subtitle" style="max-width:720px; margin: 0 auto;">{{ $category->short_description }}</p>
+                    @endif
                 </div>
-            @endforeach
-        </div>
-    </div>
-</section>
+                <div class="gallery-grid pswp-gallery" data-gallery="category-{{ $category->id }}">
+                    @foreach($category->galleries as $item)
+                        <div class="gallery-item">
+                            <a class="gallery-link" href="{{ asset('storage/' . $item->image) }}" data-pswp-width="1600" data-pswp-height="1067">
+                                <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $category->name }}" loading="lazy">
+                                <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endforeach
 @endif
-
-<!-- Gallery Section -->
-<section class="section">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">Weddings</h2>
-            <p class="section-subtitle">Elegant wedding celebrations at La Fortuna</p>
-        </div>
-        <div class="gallery-grid pswp-gallery" data-gallery="weddings">
-            <div class="gallery-item">
-                <a class="gallery-link" href="https://images.unsplash.com/photo-1519167758481-83f29da8ee08?w=1600&q=80" data-pswp-width="1600" data-pswp-height="1067">
-                    <img src="https://images.unsplash.com/photo-1519167758481-83f29da8ee08?w=800&q=80" alt="Wedding ceremony">
-                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a class="gallery-link" href="https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=1600&q=80" data-pswp-width="1600" data-pswp-height="1067">
-                    <img src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=800&q=80" alt="Wedding decoration">
-                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a class="gallery-link" href="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=1600&q=80" data-pswp-width="1600" data-pswp-height="1067">
-                    <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&q=80" alt="Wedding reception">
-                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a class="gallery-link" href="https://images.unsplash.com/photo-1522673607211-8eac45a87c89?w=1600&q=80" data-pswp-width="1600" data-pswp-height="1067">
-                    <img src="https://images.unsplash.com/photo-1522673607211-8eac45a87c89?w=800&q=80" alt="Wedding venue">
-                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a class="gallery-link" href="https://images.unsplash.com/photo-1519741497674-611481863552?w=1600&q=80" data-pswp-width="1600" data-pswp-height="1067">
-                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80" alt="Wedding setup">
-                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a class="gallery-link" href="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1600&q=80" data-pswp-width="1600" data-pswp-height="1067">
-                    <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80" alt="Wedding celebration">
-                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section" style="background: var(--light-gray);">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">Birthday Celebrations</h2>
-            <p class="section-subtitle">Memorable birthday parties at our venue</p>
-        </div>
-        <div class="gallery-grid pswp-gallery" data-gallery="birthdays">
-            <div class="gallery-item">
-                <a class="gallery-link" href="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1600&q=80" data-pswp-width="1600" data-pswp-height="1067">
-                    <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80" alt="Birthday party">
-                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a class="gallery-link" href="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=1600&q=80" data-pswp-width="1600" data-pswp-height="1067">
-                    <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=800&q=80" alt="Birthday decoration">
-                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a class="gallery-link" href="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80" data-pswp-width="1600" data-pswp-height="1067">
-                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Birthday setup">
-                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a class="gallery-link" href="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=1600&q=80" data-pswp-width="1600" data-pswp-height="1067">
-                    <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=800&q=80" alt="Birthday celebration">
-                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a class="gallery-link" href="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=1600&q=80" data-pswp-width="1600" data-pswp-height="1067">
-                    <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800&q=80" alt="Birthday venue">
-                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a class="gallery-link" href="https://images.unsplash.com/photo-1464347744102-11db6282f854?w=1600&q=80" data-pswp-width="1600" data-pswp-height="1067">
-                    <img src="https://images.unsplash.com/photo-1464347744102-11db6282f854?w=800&q=80" alt="Birthday party">
-                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">Special Events & Parties</h2>
-            <p class="section-subtitle">Various celebrations and corporate events</p>
-        </div>
-        <div class="gallery-grid pswp-gallery" data-gallery="events">
-            <div class="gallery-item">
-                <a class="gallery-link" href="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1600&q=80" data-pswp-width="1600" data-pswp-height="1067">
-                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80" alt="Special event">
-                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a class="gallery-link" href="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1600&q=80" data-pswp-width="1600" data-pswp-height="1067">
-                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80" alt="Corporate event">
-                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a class="gallery-link" href="https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=1600&q=80" data-pswp-width="1600" data-pswp-height="1067">
-                    <img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=800&q=80" alt="Party venue">
-                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a class="gallery-link" href="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1600&q=80" data-pswp-width="1600" data-pswp-height="1067">
-                    <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80" alt="Event celebration">
-                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a class="gallery-link" href="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?w=1600&q=80" data-pswp-width="1600" data-pswp-height="1067">
-                    <img src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?w=800&q=80" alt="Party setup">
-                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <a class="gallery-link" href="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1600&q=80" data-pswp-width="1600" data-pswp-height="1067">
-                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80" alt="Event venue">
-                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- CTA Section -->
 <section class="section" style="background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--white); text-align: center;">

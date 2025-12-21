@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Galleries;
 
 use App\Models\Gallery;
+use App\Models\GalleryCategory;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
@@ -15,29 +16,27 @@ class Index extends Component
     use WithFileUploads;
     use WithPagination;
 
-    public string $search = '';
-
     public int $perPage = 12;
 
-    public ?int $editingId = null;
+    public array $photos = [];
 
-    public ?string $title = null;
+    public ?int $category_id = null;
 
-    public $photo; // TemporaryUploadedFile
+    public ?int $filterCategoryId = null;
 
     protected function rules(): array
     {
         return [
-            'title' => ['nullable', 'string', 'max:255'],
-            'photo' => [$this->editingId ? 'nullable' : 'required', 'image', 'mimes:jpeg,jpg,png,webp,gif', 'max:6144'],
+            'photos' => ['required', 'array', 'max:10'],
+            'photos.*' => ['image', 'mimes:jpeg,jpg,png,webp,gif', 'max:6144'],
+            'category_id' => ['required', 'exists:gallery_categories,id'],
         ];
     }
 
     public function resetForm(): void
     {
-        $this->editingId = null;
-        $this->title = null;
-        $this->photo = null;
+        $this->photos = [];
+        $this->category_id = null;
         $this->resetErrorBag();
         $this->resetValidation();
     }
@@ -46,37 +45,17 @@ class Index extends Component
     {
         $this->validate();
 
-        $path = null;
-        if ($this->photo) {
-            $path = $this->storeAsWebp($this->photo);
-        }
+        foreach ($this->photos as $upload) {
+            $path = $this->storeAsWebp($upload);
 
-        if ($this->editingId) {
-            $gallery = Gallery::findOrFail($this->editingId);
-            if ($path) {
-                if ($gallery->image && Storage::disk('public')->exists($gallery->image)) {
-                    Storage::disk('public')->delete($gallery->image);
-                }
-                $gallery->image = $path;
-            }
-            $gallery->title = $this->title;
-            $gallery->save();
-        } else {
             Gallery::create([
-                'title' => $this->title,
                 'image' => $path,
+                'gallery_category_id' => $this->category_id,
             ]);
         }
 
         $this->dispatch('gallerySaved');
         $this->resetForm();
-    }
-
-    public function edit(Gallery $gallery): void
-    {
-        $this->editingId = $gallery->id;
-        $this->title = $gallery->title;
-        $this->photo = null;
     }
 
     public function delete(Gallery $gallery): void
@@ -102,11 +81,6 @@ class Index extends Component
         return $filename;
     }
 
-    public function updatingSearch(): void
-    {
-        $this->resetPage();
-    }
-
     public function updatingPerPage(): void
     {
         $this->resetPage();
@@ -115,12 +89,16 @@ class Index extends Component
     public function render()
     {
         $galleries = Gallery::query()
-            ->when($this->search, fn ($q) => $q->where('title', 'like', '%'.$this->search.'%'))
+            ->with('category')
+            ->when($this->filterCategoryId, fn ($q) => $q->where('gallery_category_id', $this->filterCategoryId))
             ->latest()
             ->paginate($this->perPage);
 
+        $categories = GalleryCategory::query()->orderBy('name')->get();
+
         return view('livewire.admin.galleries.index', [
             'galleries' => $galleries,
+            'categories' => $categories,
         ]);
     }
 }

@@ -7,15 +7,23 @@
 <!-- Hero Section -->
 <section class="hero">
     <div class="hero-slider">
-        <div class="hero-slide active">
-            <img src="https://images.unsplash.com/photo-1519167758481-83f29da8ee08?w=1920&q=80" alt="Elegant wedding venue">
-        </div>
-        <div class="hero-slide">
-            <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1920&q=80" alt="Beautiful banquet hall">
-        </div>
-        <div class="hero-slide">
-            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1920&q=80" alt="Celebration venue">
-        </div>
+        @if(isset($banners) && $banners->count())
+            @foreach($banners as $banner)
+                <div class="hero-slide {{ $loop->first ? 'active' : '' }}">
+                    <img src="{{ asset('storage/' . $banner->image) }}" alt="{{ $banner->title ?? 'Banner' }}">
+                </div>
+            @endforeach
+        @else
+            <div class="hero-slide active">
+                <img src="https://images.unsplash.com/photo-1519167758481-83f29da8ee08?w=1920&q=80" alt="Elegant wedding venue">
+            </div>
+            <div class="hero-slide">
+                <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1920&q=80" alt="Beautiful banquet hall">
+            </div>
+            <div class="hero-slide">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1920&q=80" alt="Celebration venue">
+            </div>
+        @endif
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
