@@ -37,7 +37,7 @@
 </section>
 
 <!-- Stats Section -->
-<section class="stats" style="padding: 40px 0;">
+<section class="stats" style="padding: 0 !important;">
     <div class="container">
         <div class="stats-grid">
             <div class="stat-card">
