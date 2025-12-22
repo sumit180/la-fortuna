@@ -37,7 +37,7 @@
 </section>
 
 <!-- Stats Section -->
-<section class="stats">
+<section class="stats" style="padding: 40px 0;">
     <div class="container">
         <div class="stats-grid">
             <div class="stat-card">
@@ -67,6 +67,49 @@
                 </div>
                 <div class="stat-number" data-target="1500">0+</div>
                 <div class="stat-label">Happy Clients</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Us Section -->
+<section class="section about-section">
+    <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center;">
+            <!-- Image Column -->
+            <div>
+                <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80" alt="La Fortuna Banquet Hall" style="width: 100%; height: 600px; object-fit: cover; border-radius: 12px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);">
+            </div>
+            
+            <!-- Text Column -->
+            <div>
+                <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">About La Fortuna</h2>
+                <p style="color: var(--gray); font-size: 18px; line-height: 1.8; margin-bottom: 20px;">
+                    La Fortuna Banquet Hall stands as a beacon of elegance and sophistication in the world of event venues. With over a decade of experience, we have established ourselves as the premier destination for celebrations that matter.
+                </p>
+                <p style="color: var(--gray); font-size: 18px; line-height: 1.8; margin-bottom: 20px;">
+                    Our state-of-the-art facility, combined with our dedicated team of professionals, ensures that every event hosted at La Fortuna is nothing short of spectacular. From intimate gatherings to grand celebrations, we transform visions into unforgettable realities.
+                </p>
+                <p style="color: var(--gray); font-size: 18px; line-height: 1.8; margin-bottom: 30px;">
+                    We pride ourselves on our commitment to excellence, attention to detail, and unwavering dedication to making your special day truly memorable. Your celebration deserves nothing less than La Fortuna.
+                </p>
+                
+                <div style="display: flex; gap: 30px; margin-top: 30px;">
+                    <div>
+                        <h4 style="color: var(--gold); font-size: 24px; font-weight: 700; margin-bottom: 5px;">1000+</h4>
+                        <p style="color: var(--gray);">Events Hosted</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--gold); font-size: 24px; font-weight: 700; margin-bottom: 5px;">15+</h4>
+                        <p style="color: var(--gray);">Years Experience</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--gold); font-size: 24px; font-weight: 700; margin-bottom: 5px;">100%</h4>
+                        <p style="color: var(--gray);">Satisfied Clients</p>
+                    </div>
+                </div>
+                
+                <a href="{{ route('about') }}" class="btn btn-primary" style="margin-top: 30px;">Learn More About Us</a>
             </div>
         </div>
     </div>
@@ -259,6 +302,13 @@
     cursor: not-allowed;
 }
 @media (max-width: 768px) {
+    .about-section {
+        display: block !important;
+    }
+    .about-section > div {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+    }
     .slider-btn {
         display: none !important;
     }

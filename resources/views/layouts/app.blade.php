@@ -44,8 +44,9 @@
                     <li><a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}">About Us</a></li>
                     <li><a href="{{ route('gallery') }}" class="{{ request()->routeIs('gallery') ? 'active' : '' }}">Gallery</a></li>
                     <li><a href="{{ route('reviews') }}" class="{{ request()->routeIs('reviews') ? 'active' : '' }}">Reviews</a></li>
+                    <li><a href="{{ route('booking') }}" class="{{ request()->routeIs('booking') ? 'active' : '' }}">Book Event</a></li>
                     <li><a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">Contact</a></li>
-                    <li><a href="{{ route('booking') }}" class="btn-nav">Book Now</a></li>
+                    
                 </ul>
             </div>
         </div>
