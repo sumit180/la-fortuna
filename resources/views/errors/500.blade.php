@@ -1,0 +1,79 @@
+@extends('layouts.app')
+
+@section('title', '500 - Server Error')
+
+@section('content')
+<style>
+    .error-section { 
+        min-height: 60vh; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        padding: 60px 0; 
+        background: linear-gradient(135deg, var(--light-bg) 0%, var(--white) 100%);
+    }
+    .error-content { 
+        text-align: center; 
+        max-width: 600px; 
+        padding: 40px 20px; 
+    }
+    .error-code { 
+        font-size: 120px; 
+        font-weight: 700; 
+        background: linear-gradient(135deg, var(--gold), var(--gold-dark)); 
+        -webkit-background-clip: text; 
+        -webkit-text-fill-color: transparent; 
+        background-clip: text; 
+        line-height: 1; 
+        margin-bottom: 20px;
+        font-family: 'Playfair Display', serif;
+    }
+    .error-title { 
+        font-size: 32px; 
+        font-weight: 700; 
+        color: var(--dark); 
+        margin-bottom: 16px; 
+        font-family: 'Playfair Display', serif;
+    }
+    .error-message { 
+        font-size: 16px; 
+        color: var(--gray); 
+        line-height: 1.6; 
+        margin-bottom: 32px; 
+    }
+    .error-actions { 
+        display: flex; 
+        gap: 16px; 
+        justify-content: center; 
+        flex-wrap: wrap; 
+    }
+    .error-icon { 
+        font-size: 60px; 
+        color: var(--gold); 
+        margin-bottom: 24px; 
+        opacity: 0.8; 
+    }
+</style>
+
+<section class="error-section">
+    <div class="error-content">
+        <div class="error-icon">
+            <i class="fa-solid fa-circle-exclamation"></i>
+        </div>
+        <div class="error-code">500</div>
+        <h1 class="error-title">Something Went Wrong</h1>
+        <p class="error-message">
+            We're experiencing some technical difficulties on our end. 
+            Our team has been notified and is working to fix the issue. Please try again in a few moments.
+        </p>
+        <div class="error-actions">
+            <a href="{{ route('home') }}" class="btn btn-primary">
+                <i class="fa-solid fa-home"></i> Back to Home
+            </a>
+            <a href="javascript:history.back()" class="btn btn-secondary">
+                <i class="fa-solid fa-arrow-left"></i> Go Back
+            </a>
+        </div>
+    </div>
+</section>
+@endsection

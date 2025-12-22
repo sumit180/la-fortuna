@@ -24,7 +24,7 @@ class AdminAuthController extends Controller
         if (Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->route('admin.leads.index');
+            return redirect()->route('admin.dashboard');
         }
 
         throw ValidationException::withMessages([

@@ -42,6 +42,10 @@
             <span>La Fortuna Admin</span>
         </div>
         <nav class="admin-nav">
+            <a href="{{ route('admin.dashboard') }}" class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
+                <i class="fa-solid fa-gauge"></i>
+                <span>Dashboard</span>
+            </a>
             <a href="{{ route('admin.leads.index') }}" class="{{ request()->routeIs('admin.leads.*') ? 'active' : '' }}">
                 <i class="fa-solid fa-inbox"></i>
                 <span>Leads</span>

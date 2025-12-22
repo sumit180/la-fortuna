@@ -14,7 +14,7 @@ $login = function () use ($rules) {
 
         if (\Illuminate\Support\Facades\Auth::guard('admin')->attempt($validated)) {
                 request()->session()->regenerate();
-                return redirect()->route('admin.leads.index');
+                return redirect()->route('admin.dashboard');
         }
 
         $this->error = 'The provided credentials are incorrect.';
