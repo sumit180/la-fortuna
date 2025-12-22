@@ -69,7 +69,7 @@
                         </div>
                         <div class="contact-item-content">
                             <h4>Call Us</h4>
-                            <p>+1 (123) 456-7890</p>
+                            <p>+91 88600 05311</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -78,7 +78,7 @@
                         </div>
                         <div class="contact-item-content">
                             <h4>Email Us</h4>
-                            <p>booking@lafortuna.com</p>
+                            <p>info@lafortuna.com</p>
                         </div>
                     </div>
                 </div>
