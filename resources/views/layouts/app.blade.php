@@ -25,6 +25,35 @@
     @stack('styles')
 </head>
 <body>
+    <!-- Top Header Bar -->
+    <div class="top-header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Left Side: Contact Info -->
+                <div class="header-left">
+                    <a href="mailto:info@lafortuna.com" class="header-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@lafortuna.com</span>
+                    </a>
+                    <a href="tel:+918860005311" class="header-link">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 88600 05311</span>
+                    </a>
+                </div>
+
+                <!-- Right Side: Social Media Icons -->
+                <div class="header-right">
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="container">
