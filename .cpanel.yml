@@ -1,0 +1,16 @@
+---
+deployment:
+  targets:
+    - deployment_target: "default"
+      commands:
+        - "/bin/cp -r public/* /home/lafor/public_html/"
+        - "/bin/cp -r storage /home/lafor/public_html/"
+        - "/bin/cp -r app /home/lafor/public_html/"
+        - "/bin/cp -r routes /home/lafor/public_html/"
+        - "/bin/cp -r config /home/lafor/public_html/"
+        - "/bin/cp -r bootstrap /home/lafor/public_html/"
+        - "/bin/cp -r resources /home/lafor/public_html/"
+        - "/bin/cp -r database /home/lafor/public_html/"
+        - "/bin/cp .env.production /home/lafor/public_html/.env"
+        - "/bin/cp composer.json /home/lafor/public_html/"
+        - "/bin/cp composer.lock /home/lafor/public_html/"
