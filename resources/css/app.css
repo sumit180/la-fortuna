@@ -33,6 +33,18 @@ body {
     overflow-x: hidden;
 }
 
+/* Page-specific offset to clear fixed header + navbar */
+.content-offset {
+    /* Combined height of top-header (~50px) + navbar (~110px) */
+    padding-top: 160px;
+}
+
+@media (max-width: 768px) {
+    .content-offset {
+        padding-top: 120px;
+    }
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
     font-weight: 700;

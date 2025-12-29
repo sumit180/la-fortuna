@@ -3,7 +3,7 @@
 @section('title', 'Admin Login')
 
 @section('content')
-<div class="section">
+<div class="section content-offset">
   <div class="container" style="max-width: 480px; padding-top: 24px;">
     <h1 class="section-title" style="margin-bottom: 24px;">Admin Login</h1>
     @if(session('status'))
