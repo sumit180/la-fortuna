@@ -15,13 +15,13 @@
             @endforeach
         @else
             <div class="hero-slide active">
-                <img src="https://images.unsplash.com/photo-1519167758481-83f29da8ee08?w=1920&q=80" alt="Elegant wedding venue">
+                <img src="{{ asset('galleries/img_695346c34bd0a1.67193952.webp') }}" alt="Elegant wedding venue">
             </div>
             <div class="hero-slide">
-                <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1920&q=80" alt="Beautiful banquet hall">
+                <img src="{{ asset('galleries/img_695346f71a24b0.42466789.webp') }}" alt="Beautiful banquet hall">
             </div>
             <div class="hero-slide">
-                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1920&q=80" alt="Celebration venue">
+                <img src="{{ asset('galleries/img_695346f7821db4.68402788.webp') }}" alt="Celebration venue">
             </div>
         @endif
     </div>
@@ -78,7 +78,7 @@
         <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center;">
             <!-- Image Column -->
             <div>
-                <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80" alt="La Fortuna Banquet Hall" style="width: 100%; height: 600px; object-fit: cover; border-radius: 12px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);">
+                <img src="{{ asset('galleries/img_695346f7f24089.32625760.webp') }}" alt="La Fortuna Banquet Hall" style="width: 100%; height: 600px; object-fit: cover; border-radius: 12px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);">
             </div>
             
             <!-- Text Column -->
@@ -188,37 +188,37 @@
                 @endforeach
             @else
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=800&q=80" alt="Wedding decoration">
+                    <img src="{{ asset('galleries/img_695346f85dc2d3.86849450.webp') }}" alt="Wedding decoration">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1519167758481-83f29da8ee08?w=800&q=80" alt="Banquet setup">
+                    <img src="{{ asset('galleries/img_695346f906e196.27564897.webp') }}" alt="Banquet setup">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&q=80" alt="Reception hall">
+                    <img src="{{ asset('galleries/img_695346f96e1104.32672732.webp') }}" alt="Reception hall">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80" alt="Celebration">
+                    <img src="{{ asset('galleries/img_695346f98d1ca4.28185342.webp') }}" alt="Celebration">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80" alt="Event venue">
+                    <img src="{{ asset('galleries/img_695346fa075639.91138755.webp') }}" alt="Event venue">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80" alt="Party setup">
+                    <img src="{{ asset('galleries/img_695346fa677a88.43746027.webp') }}" alt="Party setup">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                     </div>
@@ -231,137 +231,5 @@
     </div>
 </section>
 
-<!-- Testimonials Section -->
-<section class="section testimonials">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">What Our Clients Say</h2>
-            <p class="section-subtitle">Real experiences from our satisfied customers</p>
-        </div>
-        @if(isset($reviews) && $reviews->count() > 0)
-            <div class="testimonials-slider-wrapper" style="position: relative; max-width: 900px; margin: 0 auto;">
-                <button class="slider-btn slider-prev" style="position: absolute; left: -50px; top: 50%; transform: translateY(-50%); background: var(--gold); color: var(--white); border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 18px; z-index: 10; transition: all 0.3s;">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <div class="testimonials-slider">
-                    @foreach($reviews as $review)
-                        <div class="testimonial-card" style="display: {{ $loop->first ? 'block' : 'none' }};">
-                            <p class="testimonial-text">"{{ $review->message }}"</p>
-                            <div class="testimonial-author">
-                                <div class="author-avatar">{{ substr($review->name, 0, 1) }}{{ substr(explode(' ', $review->name)[1] ?? '', 0, 1) }}</div>
-                                <div class="author-info">
-                                    <h4>{{ $review->name }}</h4>
-                                    <div class="author-rating">
-                                        @for($i = 0; $i < $review->rating; $i++)
-                                            <i class="fas fa-star"></i>
-                                        @endfor
-                                        @for($i = $review->rating; $i < 5; $i++)
-                                            <i class="far fa-star"></i>
-                                        @endfor
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-                <button class="slider-btn slider-next" style="position: absolute; right: -50px; top: 50%; transform: translateY(-50%); background: var(--gold); color: var(--white); border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 18px; z-index: 10; transition: all 0.3s;">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        @else
-            <div class="testimonials-slider">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"La Fortuna made our wedding day absolutely perfect! The venue was stunning, the staff was professional and attentive, and every detail was executed flawlessly. Our guests are still talking about how amazing everything was!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">MJ</div>
-                        <div class="author-info">
-                            <h4>Maria & John</h4>
-                            <div class="author-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endif
-    </div>
-</section>
 
-@push('styles')
-<style>
-.slider-btn:hover {
-    background: var(--gold-dark) !important;
-    transform: translateY(-50%) scale(1.1);
-}
-.slider-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-@media (max-width: 768px) {
-    .about-section {
-        display: block !important;
-    }
-    .about-section > div {
-        grid-template-columns: 1fr !important;
-        gap: 30px !important;
-    }
-    .slider-btn {
-        display: none !important;
-    }
-}
-</style>
-@endpush
-
-@push('scripts')
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const testimonials = document.querySelectorAll('.testimonial-card');
-    const prevBtn = document.querySelector('.slider-prev');
-    const nextBtn = document.querySelector('.slider-next');
-    let currentIndex = 0;
-
-    if (testimonials.length > 1 && prevBtn && nextBtn) {
-        function showTestimonial(index) {
-            testimonials.forEach((card, i) => {
-                card.style.display = i === index ? 'block' : 'none';
-            });
-            prevBtn.disabled = index === 0;
-            nextBtn.disabled = index === testimonials.length - 1;
-        }
-
-        prevBtn.addEventListener('click', () => {
-            if (currentIndex > 0) {
-                currentIndex--;
-                showTestimonial(currentIndex);
-            }
-        });
-
-        nextBtn.addEventListener('click', () => {
-            if (currentIndex < testimonials.length - 1) {
-                currentIndex++;
-                showTestimonial(currentIndex);
-            }
-        });
-
-        showTestimonial(currentIndex);
-    }
-});
-</script>
-@endpush
-
-<!-- CTA Section -->
-<section class="section" style="background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--white); text-align: center;">
-    <div class="container">
-        <h2 style="color: var(--white); font-size: 42px; margin-bottom: 20px;">Ready to Plan Your Perfect Event?</h2>
-        <p style="font-size: 20px; margin-bottom: 40px;">Let us help you create unforgettable memories at La Fortuna Banquet Hall</p>
-        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-            <a href="{{ route('booking') }}" class="btn btn-secondary">Book Now</a>
-            <a href="{{ route('contact') }}" class="btn" style="background: var(--white); color: var(--gold);">Contact Us</a>
-        </div>
-    </div>
-</section>
 @endsection

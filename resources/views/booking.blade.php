@@ -13,7 +13,7 @@
 <section class="hero" style="height: 60vh; min-height: 400px;">
     <div class="hero-slider">
         <div class="hero-slide active">
-            <img src="https://images.unsplash.com/photo-1519167758481-83f29da8ee08?w=1920&q=80" alt="Book your event">
+            <img src="{{ asset('galleries/img_695346c1a9c7d0.69288043.webp') }}" alt="Book your event">
         </div>
     </div>
     <div class="hero-overlay"></div>

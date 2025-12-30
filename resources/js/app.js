@@ -21,11 +21,22 @@ document.addEventListener('DOMContentLoaded', function() {
 // Navbar Scroll Effect
 window.addEventListener('scroll', function() {
     const navbar = document.getElementById('navbar');
+    const topHeader = document.querySelector('.top-header');
     if (navbar) {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
+            // Hide top header on scroll, keep navbar at top
+            if (topHeader) {
+                topHeader.style.transform = 'translateY(-100%)';
+            }
+            navbar.style.top = '0';
         } else {
             navbar.classList.remove('scrolled');
+            // Show top header when at top
+            if (topHeader) {
+                topHeader.style.transform = 'translateY(0)';
+            }
+            navbar.style.top = '50px';
         }
     }
 });

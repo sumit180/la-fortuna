@@ -8,7 +8,7 @@
 <section class="hero" style="height: 60vh; min-height: 400px;">
     <div class="hero-slider">
         <div class="hero-slide active">
-            <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1920&q=80" alt="Contact Us">
+            <img src="{{ asset('galleries/img_695346c1db2db7.19085111.webp') }}" alt="Contact Us">
         </div>
     </div>
     <div class="hero-overlay"></div>

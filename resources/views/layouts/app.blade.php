@@ -85,6 +85,13 @@
     <main>
         @yield('content')
     </main>
+    @if(!request()->routeIs('booking'))
+ @if(!request()->routeIs('reviews'))
+    <!-- Testimonials Section -->
+    <livewire:testimonials-list />
+@endif
+    @include('partials.cta')
+@endif
 
     <!-- Footer -->
     <footer class="footer">

@@ -8,7 +8,7 @@
 <section class="hero" style="height: 60vh; min-height: 400px;">
     <div class="hero-slider">
         <div class="hero-slide active">
-            <img src="https://images.unsplash.com/photo-1519167758481-83f29da8ee08?w=1920&q=80" alt="About La Fortuna">
+            <img src="{{ asset('galleries/img_695346c0bdee78.41239655.webp') }}" alt="About La Fortuna">
         </div>
     </div>
     <div class="hero-overlay"></div>
@@ -23,7 +23,7 @@
     <div class="container">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
             <div>
-                <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80" alt="La Fortuna Venue" style="border-radius: 15px; box-shadow: 0 10px 30px var(--shadow);">
+                <img src="{{ asset('galleries/img_695346c124ccb6.78549664.webp') }}" alt="La Fortuna Venue" style="border-radius: 15px; box-shadow: 0 10px 30px var(--shadow);">
             </div>
             <div>
                 <h2 style="font-size: 42px; margin-bottom: 20px;">Our Story</h2>
@@ -36,13 +36,22 @@
                 <p style="color: var(--gray); line-height: 1.8; margin-bottom: 30px;">
                     Our team of dedicated professionals works tirelessly to ensure that every detail is perfect, from the initial planning stages to the final moments of your celebration. We believe that every event deserves to be extraordinary.
                 </p>
-                <a href="{{ route('booking') }}" class="btn btn-primary">Plan Your Event</a>
-            </div>
+                </div>
+                 
         </div>
+<div style="border: 3px solid var(--red); padding: 30px; border-radius: 15px; margin-bottom: 30px; background: rgba(191, 50, 36, 0.05);">
+                    <p style="color: var(--gray); line-height: 1.8; margin: 0;">
+                        Whether you're planning an intimate gathering or a grand celebration, La Fortuna Banquet Hall is here to make your dreams a reality. Our experienced event coordinators are here to help you create an unforgettable celebration tailored to your unique vision and needs. From elegant weddings to milestone birthday parties, corporate gatherings to family reunions, we provide the perfect backdrop for your special moments. Our attention to detail, commitment to excellence, and personalized service ensure that your event will be remembered for years to come.
+                    </p>
+                </div>
+                <div style="text-align: center; padding: 30px 0;">
+                    <a href="{{ route('booking') }}" class="btn btn-primary">Plan Your Event</a>
+                </div>
+           
     </div>
 </section>
 
-<!-- Our Values Section -->
+{{--<!-- Our Values Section -->
 <section class="section" style="background: var(--light-gray);">
     <div class="container">
         <div class="section-header">
@@ -94,7 +103,7 @@
             </div>
         </div>
     </div>
-</section>
+</section>--}}
 
 <!-- Our Facilities Section -->
 <section class="section">
@@ -150,14 +159,14 @@
     </div>
 </section>
 
-<!-- CTA Section -->
+{{--<!-- CTA Section -->
 <section class="section" style="background: linear-gradient(135deg, var(--red), var(--red-dark)); color: var(--white); text-align: center;">
     <div class="container">
         <h2 style="color: var(--white); font-size: 42px; margin-bottom: 20px;">Experience La Fortuna</h2>
         <p style="font-size: 20px; margin-bottom: 40px;">Schedule a tour of our venue and let us help you plan your perfect event</p>
         <a href="{{ route('contact') }}" class="btn" style="background: var(--white); color: var(--red);">Schedule a Tour</a>
     </div>
-</section>
+</section>--}}
 @endsection
 
 @push('styles')
